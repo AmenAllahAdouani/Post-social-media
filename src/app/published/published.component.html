@@ -9,7 +9,6 @@
         <div class="dropdown-item" (click)="deletePost()">Delete</div>
       </div>
     </div>
-    <img *ngIf="post.image" [src]="post.image" alt="Post Image" class="post-image">
     <p class="post-text">{{ post.text }}</p>
     <hr class="divider">
     <div class="buttons-container">
@@ -39,11 +38,6 @@
 <div class="modal" *ngIf="showUpdateModal">
   <div class="modal-content">
     <span class="close-btn" (click)="closeUpdateModal()">&times;</span>
-    <label for="imageUpload" class="image-upload-label">
-      <i class="fa fa-camera"></i> Photo / Video
-    </label>
-    <input type="file" id="imageUpload" (change)="onImageSelected($event)" class="post-image-input" hidden >
-    <img *ngIf="editableImage" [src]="editableImage" alt="Editable Image" class="editable-image">
     <textarea [(ngModel)]="editableText" class="edit-textarea"></textarea>
     <button class="updateButton" (click)="updatePost()">Update Post</button>
   </div>

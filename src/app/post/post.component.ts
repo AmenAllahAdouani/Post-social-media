@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-post',
@@ -7,41 +8,26 @@ import { Component } from '@angular/core';
 })
 export class PostComponent {
   newPostText: string = '';
-  imagePreview: string | ArrayBuffer | null = null;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   onTextChange(event: Event): void {
     const element = event.target as HTMLTextAreaElement;
     this.newPostText = element.value;
   }
 
-  onImageChange(event: Event): void {
-    const element = event.target as HTMLInputElement;
-    if (element.files && element.files.length > 0) {
-        const file = element.files[0];
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            if (e.target?.result) {
-                this.imagePreview = e.target.result;
-            } else {
-                this.imagePreview = null;
-            }
-        };
-        reader.readAsDataURL(file);
-    } else {
-        this.imagePreview = null;
-    }
-  }
-
   submitPost(): void {
-    // submission logic here.
-    console.log('Submitting Post:', this.newPostText);
-    if (this.imagePreview) {
-      console.log('With Image:', this.imagePreview);
+    if (this.newPostText.trim()) {
+      this.http.post('http://localhost:8000/api/posts/{id}', { text: this.newPostText })
+        .subscribe({
+          next: (response) => {
+            console.log('Post submitted', response);
+            this.newPostText = '';
+          },
+          error: (error) => {
+            console.error('Error submitting post', error);
+          }
+        });
     }
-
-    this.newPostText = '';
-    this.imagePreview = null;
   }
 }
