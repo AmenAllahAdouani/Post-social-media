@@ -1,0 +1,50 @@
+<div class="post">
+  <div class="post-content">
+    <div class="post-header">
+      <button class="menu-button" (click)="toggleDropdown()">
+        <span class="menu-icon">...</span>
+      </button>
+      <div *ngIf="showDropdown" class="dropdown-menu">
+        <div class="dropdown-item" (click)="openUpdateModal()">Update</div>
+        <div class="dropdown-item" (click)="deletePost()">Delete</div>
+      </div>
+    </div>
+    <img *ngIf="post.image" [src]="post.image" alt="Post Image" class="post-image">
+    <p class="post-text">{{ post.text }}</p>
+    <hr class="divider">
+    <div class="buttons-container">
+      <button class="reaction-button" (click)="onReactionClick()">
+        <i class="icon-like"></i> Like
+      </button>
+      <button class="comment-button" (click)="toggleCommentBox()">
+        <i class="icon-comment"></i> Comment
+      </button>
+      <button class="share-button" (click)="onShareClick()">
+        <i class="icon-share"></i> Share
+      </button>
+    </div>
+    <div *ngIf="showCommentBox" class="comment-box">
+      <textarea [(ngModel)]="commentText" placeholder="Write a comment..." class="comment-textarea"></textarea>
+      <button (click)="submitComment()" class="submit-comment">Post</button>
+    </div>
+    <div class="comments-section">
+      <div *ngFor="let comment of comments" class="comment">
+        <strong>{{ comment.author }}:</strong> {{ comment.content }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Modal -->
+<div class="modal" *ngIf="showUpdateModal">
+  <div class="modal-content">
+    <span class="close-btn" (click)="closeUpdateModal()">&times;</span>
+    <label for="imageUpload" class="image-upload-label">
+      <i class="fa fa-camera"></i> Photo / Video
+    </label>
+    <input type="file" id="imageUpload" (change)="onImageSelected($event)" class="post-image-input" hidden >
+    <img *ngIf="editableImage" [src]="editableImage" alt="Editable Image" class="editable-image">
+    <textarea [(ngModel)]="editableText" class="edit-textarea"></textarea>
+    <button class="updateButton" (click)="updatePost()">Update Post</button>
+  </div>
+</div>

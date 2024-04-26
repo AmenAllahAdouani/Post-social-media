@@ -1,0 +1,257 @@
+.post-header {
+  display: flex;
+  justify-content: flex-end;
+  position: relative; /* Added to position children absolutely relative to this container */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Align dropdown to be just below the button */
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 120px;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dropdown-item {
+  padding: 10px;
+  width: 83%;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-button {
+  padding: 5px 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.menu-icon {
+  font-weight: bold;
+  font-size: 24px;
+  display: block;
+}  
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 500px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-content {
+  padding: 15px;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.post-text {
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.divider {
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 1px solid;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.reaction-button {
+  border-color: #f7255d;
+  color: #f7255d;
+}
+
+.comment-button {
+  border-color: #42B72A;
+  color: #42B72A;
+}
+
+.share-button {
+  border-color: #5C7AEA;
+  color: #5C7AEA;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+i {
+  padding-right: 5px;
+}
+
+.icon-like:before {
+  content: "\2665"; 
+}
+
+.icon-comment:before {
+  content: "\1F4AC"; 
+}
+
+.icon-share:before {
+  content: "\1F517";
+}
+
+
+.comment-box {
+  margin-top: 10px;
+}
+
+.comment-textarea {
+  width: 95%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.submit-comment {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comments-section {
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 0.9rem;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
+.comment-textarea {
+  width: 95%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.submit-comment {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  min-width: 300px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-textarea {
+  width: 90%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.updateButton{
+  margin-top: 10px;
+  border-color: #5C7AEA;
+  color: #5C7AEA;
+}
+
+.post-image-input {
+  display: none; 
+}
+
+.image-upload-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.image-upload-label:hover {
+  background-color: #e9e9e9;
+}
+
+.image-upload-label i {
+  margin-right: 5px;
+}
